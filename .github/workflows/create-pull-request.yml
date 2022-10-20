@@ -11,8 +11,29 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
 
+    # Usage:  gh pr create [flags]
+    #
+    # Flags:
+    #   -a, --assignee login       Assign people by their login. Use "@me" to self-assign.
+    #   -B, --base branch          The branch into which you want your code merged
+    #   -b, --body string          Body for the pull request
+    #   -F, --body-file file       Read body text from file (use "-" to read from standard input)
+    #   -d, --draft                Mark pull request as a draft
+    #   -f, --fill                 Do not prompt for title/body and just use commit info
+    #   -H, --head branch          The branch that contains commits for your pull request (default: current branch)
+    #   -l, --label name           Add labels by name
+    #   -m, --milestone name       Add the pull request to a milestone by name
+    #       --no-maintainer-edit   Disable maintainer's ability to modify pull request
+    #   -p, --project name         Add the pull request to projects by name
+    #       --recover string       Recover input from a failed run of create
+    #   -r, --reviewer handle      Request reviews from people or teams by their handle
+    #   -t, --title string         Title for the pull request
+    #   -w, --web                  Open the web browser to create a pull request
     - name: Create Pull Request
-      run: gh pr create
+      # https://cli.github.com/manual/gh_pr_create
+      run: gh pr create --fill # must provide `--title` and `--body` (or `--fill`) when not running interactively
       env:
         GITHUB_TOKEN: ${{ github.token }}
