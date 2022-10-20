@@ -33,9 +33,12 @@ jobs:
     #   -t, --title string         Title for the pull request
     #   -w, --web                  Open the web browser to create a pull request
     #
+    # must provide `--title` and `--body` (or `--fill`) when not running interactively
+    #
     # https://cli.github.com/manual/gh_pr_create
     - name: Create Pull Request
-      # must provide `--title` and `--body` (or `--fill`) when not running interactively
-      run: gh pr create --fill --title "${{ github.ref_name }} $(date +'%Y-%m-%d')"
+      # title will look like "INT YYYY-MM-DD"
+      run: gh pr create --fill --title "$(echo ${{ github.ref_name }} | sed 's/egration//' | tr '[:lower:]' '[:upper:]') $(date +'%Y-%m-%d')"
       env:
         GITHUB_TOKEN: ${{ github.token }}
+      continue-on-error: true
