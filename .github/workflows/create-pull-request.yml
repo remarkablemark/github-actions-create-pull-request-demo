@@ -36,6 +36,6 @@ jobs:
     # https://cli.github.com/manual/gh_pr_create
     - name: Create Pull Request
       # must provide `--title` and `--body` (or `--fill`) when not running interactively
-      run: gh pr create --fill --title "${{ ref_name }} $(date +'%Y-%m-%d')"
+      run: gh pr create --fill --title "${{ github.ref_name }} $(date +'%Y-%m-%d')"
       env:
         GITHUB_TOKEN: ${{ github.token }}
