@@ -41,3 +41,4 @@ jobs:
       run: gh pr create --fill --title "$(echo ${{ github.ref_name }} | sed 's/egration//' | tr '[:lower:]' '[:upper:]') $(date +'%Y-%m-%d')"
       env:
         GITHUB_TOKEN: ${{ github.token }}
+      continue-on-error: true
