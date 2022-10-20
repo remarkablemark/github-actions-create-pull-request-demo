@@ -32,8 +32,10 @@ jobs:
     #   -r, --reviewer handle      Request reviews from people or teams by their handle
     #   -t, --title string         Title for the pull request
     #   -w, --web                  Open the web browser to create a pull request
+    #
+    # https://cli.github.com/manual/gh_pr_create
     - name: Create Pull Request
-      # https://cli.github.com/manual/gh_pr_create
-      run: gh pr create --fill # must provide `--title` and `--body` (or `--fill`) when not running interactively
+      # must provide `--title` and `--body` (or `--fill`) when not running interactively
+      run: gh pr create --fill --title "${{ ref_name }} $(date +'%Y-%m-%d')"
       env:
         GITHUB_TOKEN: ${{ github.token }}
