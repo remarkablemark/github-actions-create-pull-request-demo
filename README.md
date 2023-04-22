@@ -6,7 +6,7 @@ GitHub Actions create pull request demo.
 
 A PR (pull request) is created when new commits are made to the [integration](https://github.com/remarkablemark/github-actions-create-pull-request-demo/tree/integration) branch.
 
-See [workflow](https://github.com/remarkablemark/github-actions-create-pull-request-demo/blob/master/.github/workflows/create-pull-request.yml).
+See [workflow](.github/workflows/create-pull-request.yml).
 
 ## License
 
