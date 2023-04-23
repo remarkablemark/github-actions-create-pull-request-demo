@@ -8,6 +8,11 @@ A PR (pull request) is created when new commits are made to the [integration](ht
 
 See the [workflow](.github/workflows/create-pull-request.yml).
 
+> **Note**: For this to work, you must go to **Settings** > **Actions** > **General** > **Workflow permissions** and enable:
+>
+> - [ ] Read and write permissions
+> - [ ] Allow GitHub Actions to create and approve pull requests
+
 ## License
 
 [MIT](LICENSE)
