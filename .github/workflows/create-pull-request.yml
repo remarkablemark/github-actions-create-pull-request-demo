@@ -37,8 +37,10 @@ jobs:
     #
     # https://cli.github.com/manual/gh_pr_create
     - name: Create Pull Request
-      # title will look like "INT YYYY-MM-DD"
-      run: gh pr create --fill --title "$(echo ${{ github.ref_name }} | sed 's/egration//' | tr '[:lower:]' '[:upper:]') $(date +'%Y-%m-%d')"
+      run: |
+        # title will look like "INT YYYY-MM-DD"
+        TITLE=$(echo ${{ github.ref_name }} | sed 's/egration//' | tr '[:lower:]' '[:upper:]') $(date +'%Y-%m-%d')
+        gh pr create --fill --title $TITLE
       env:
         GITHUB_TOKEN: ${{ github.token }}
       continue-on-error: true
